@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@300;400;700;900&family=Sigmar&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3D8D7A;
+  --secondary: #B3D8A8;
+  --accent: #FBFFE4;
+  --tertiary: #A3D1C6;
+}
+
+body {
+  font-family: 'Atkinson Hyperlegible Next', 'Lora', serif;
+  background-image: url('frontend/assets/bgbg.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  z-index : 100000;
+}
+
+
+.gradient-text {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.flow-section {
+  @apply py-20 relative overflow-hidden;
+}
+
+.flow-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(45deg, var(--accent), transparent);
+  transform: skewY(-3deg);
+  z-index: -1;
+}
+
+.chatbot-window {
+  @apply fixed bottom-20 right-4 w-80 h-96 bg-white rounded-lg shadow-xl transform transition-transform duration-300 flex flex-col;
+}
+
+.navbar-link {
+  @apply text-gray-700 hover:text-primary transition-colors duration-300;
+}
+
+.stat-card {
+  @apply p-6 rounded-xl shadow-lg bg-white transform transition-all duration-300 hover:scale-105;
+}
+
+/* Custom scrollbar for chat messages */
+.chatbot-window .overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) #f3f4f6;
+}
+
+.chatbot-window .overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatbot-window .overflow-y-auto::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.chatbot-window .overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 3px;
+}
